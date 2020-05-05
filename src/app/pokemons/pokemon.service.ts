@@ -16,6 +16,16 @@ export class PokemonService
     console.info(log);
   }
 
+  updatePokemon(pokemon: Pokemon): Observable<Pokemon> {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-type': 'application/json'})
+    };
+    return this.http.put(this.pokemonsUrl, pokemon, httpOptions).pipe(
+      tap(_ => this.log(`updated pokemon id id=${pokemon.id}`)),
+      catchError(this.handleError<any>('updatedPokemon'))
+    );
+  }
+
   private handleError<T>(operation = 'operation' , result?: T){
     return (error: any): Observable<T> => {
       console.log(error);
@@ -42,7 +52,6 @@ export class PokemonService
         catchError(this.handleError<Pokemon>(`getPokemon id=${id}`))
       );
     }
-  }
   //Retourne tous les types de pokemons
   getPokemonTypes(): string[] {
         return ['Plante','Feu','Eau','Insecte','Normal','Electrik','Poison','Fée', 'Vol'];

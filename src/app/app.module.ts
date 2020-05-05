@@ -15,7 +15,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
     AppComponent,
     PageNotFoundComponent
   ],
-  imports: [ 
+  imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),

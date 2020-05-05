@@ -14,8 +14,14 @@ export class ListPokemonComponent implements OnInit {
   leTitle = 'poketitre';
   constructor(private rooter: Router, private pokemonService: PokemonService) { }
   ngOnInit(): void {
-    this.pokemons = this.pokemonService.getPokemons();
+    this.getPokemons();
   }
+
+  getPokemons(): void{
+    this.pokemonService.getPokemons()
+    .subscribe(pokemons => this.pokemons = pokemons);  
+  }
+
   selectPokemon(pokemon: Pokemon) {
     alert('vous avez cliqué sur : ' + pokemon.name);
     let link = ['/pokemon',pokemon.id];
