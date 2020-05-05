@@ -5,7 +5,7 @@ import { PokemonService } from './pokemon.service';
 
 @Component({
     selector: 'detail-pokemon',
-    templateUrl: './detail-pokemon.component.html',
+    templateUrl: './detail-pokemon.component.html'
 })
 export class DetailPokemonComponent implements OnInit {
     pokemon: Pokemon = null;
@@ -24,4 +24,8 @@ export class DetailPokemonComponent implements OnInit {
       let link = ['/pokemon/edit', this.pokemon.id];
       this.router.navigate(link);
     }
+    deletePokemon(pokemon: Pokemon): void {
+		this.pokemonService.deletePokemon(pokemon)
+			.subscribe(_ => this.goBack());
+	}
 }
