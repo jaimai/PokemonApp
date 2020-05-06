@@ -5,7 +5,7 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Observable, Subject, of } from 'rxjs';
 
 import { PokemonService } from './pokemon.service';
-import { Pokemon } from './pokemon';
+import { Pokemon } from './Pokemon';
 
 @Component({
 	selector: 'pokemon-search',

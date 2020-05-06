@@ -18,7 +18,7 @@ export class DetailPokemonComponent implements OnInit {
         .subscribe(pokemon => this.pokemon = pokemon)
     }
     goBack(): void {
-        this.router.navigate(['/pokemons']);
+        this.router.navigate(['/pokemon/list']);
     }
     goEdit(pokemon: Pokemon): void {
       let link = ['/pokemon/edit', this.pokemon.id];
