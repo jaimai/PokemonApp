@@ -34,10 +34,10 @@ import { AuthService } from './auth.service';
 })
 export class LoginComponent {
     message: string = 'Vous êtes déconnecté. (pikachu/pikachu)';
-    private name: string;
-    private password: string;
+    name: string;
+    password: string;
 
-    constructor(private authService: AuthService, private router: Router) { }
+    constructor(public authService: AuthService, private router: Router) { }
 
     // Informe l'utilisateur sur son authentfication.
     setMessage() {
